@@ -7,19 +7,18 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
-class App extends Component {
 
+
+class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoading: false,
       formData: {
-        textfield1: '',
-        textfield2: '',
-        select1: 1,
-        select2: 1,
-        select3: 1
+        HomeTeam: 'Arsenal',
+        AwayTeam: 'Chelsea',
+        Season: '2014/2015'
       },
       result: ""
     };
@@ -64,6 +63,32 @@ class App extends Component {
     const isLoading = this.state.isLoading;
     const formData = this.state.formData;
     const result = this.state.result;
+    
+    var pl_needed_teams = ['Arsenal', 'Aston Villa', 'Birmingham City', 'Blackburn Rovers', 'Blackpool',
+                       'Bolton Wanderers', 'Bournemouth', 'Burnley', 'Cardiff City', 'Chelsea',
+                       'Crystal Palace', 'Everton', 'Fulham', 'Hull City', 'Leicester City', 'Liverpool',
+                       'Manchester City', 'Manchester United', 'Middlesbrough', 'Newcastle United', 'Norwich City',
+                       'Portsmouth', 'Queens Park Rangers', 'Reading', 'Southampton', 'Stoke City', 'Sunderland',
+                       'Swansea City', 'Tottenham Hotspur', 'Watford', 'West Bromwich Albion', 'West Ham United',
+                       'Wigan Athletic', 'Wolverhampton Wanderers']
+
+    var pl_seasons = ['2014/2015','2015/2016']
+    
+    var seasons = []
+    for (var i = 0; i < pl_seasons.length; i++) {
+      seasons.push(<option key = {pl_seasons[i]} value = {pl_seasons[i]}>{pl_seasons[i]}</option>);
+    }
+
+    var HomeTeams = []
+    for (var i = 0; i < pl_needed_teams.length; i++) {
+      HomeTeams.push(<option key = {pl_needed_teams[i]} value = {pl_needed_teams[i]}>{pl_needed_teams[i]}</option>);
+    }
+
+    var AwayTeams = []
+    for (var i = 0; i < pl_needed_teams.length; i++) {
+      AwayTeams.push(<option key = {pl_needed_teams[i]} value = {pl_needed_teams[i]}>{pl_needed_teams[i]}</option>);
+    }
+
 
     return (
       <Container>
@@ -74,64 +99,36 @@ class App extends Component {
           <Form>
             <Form.Row>
               <Form.Group as={Col}>
-                <Form.Label>Text Field 1</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Text Field 1" 
-                  name="textfield1"
-                  value={formData.textfield1}
-                  onChange={this.handleChange} />
-              </Form.Group>
-              <Form.Group as={Col}>
-                <Form.Label>Text Field 2</Form.Label>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Text Field 2" 
-                  name="textfield2"
-                  value={formData.textfield2}
-                  onChange={this.handleChange} />
-              </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Label>Select 1</Form.Label>
+                <Form.Label>Home Team</Form.Label>
                 <Form.Control 
                   as="select"
-                  value={formData.select1}
-                  name="select1"
+                  value={formData.HomeTeam} 
+                  name="HomeTeam"
                   onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                  {HomeTeams}
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col}>
-                <Form.Label>Select 2</Form.Label>
-                <Form.Control 
+              <Form.Label>Away Team</Form.Label>
+                <Form.Control
                   as="select"
-                  value={formData.select2}
-                  name="select2"
+                  value={formData.AwayTeam}
+                  name="AwayTeam"
                   onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                  {AwayTeams}
                 </Form.Control>
               </Form.Group>
               <Form.Group as={Col}>
-                <Form.Label>Select 3</Form.Label>
-                <Form.Control 
+                <Form.Label>Season</Form.Label>
+                <Form.Control
                   as="select"
-                  value={formData.select3}
-                  name="select3"
+                  value={formData.Season}
+                  name="Season"
                   onChange={this.handleChange}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                  {seasons}
                 </Form.Control>
               </Form.Group>
+
             </Form.Row>
             <Row>
               <Col>
