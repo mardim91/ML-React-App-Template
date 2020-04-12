@@ -1,0 +1,17 @@
+//<ul>
+      //    <li><Link to="/engoutc">England Outcome</Link></li>
+      //    <li><Link to="/engscore">England Score</Link></li>
+      //    <li><Link to="/geroutc">Germany Outcome</Link></li>
+      //    <li><Link to="/gerscore">Germany Score</Link></li>
+      // </ul>
+//import {Link } from 'react-router-dom';
+
+<Navbar bg="primary" variant="dark">
+       <Navbar.Brand href="/">Home</Navbar.Brand>
+       <Nav className="mr-auto">
+      <Nav.Link href="/engoutc">England Outcome</Nav.Link>
+      <Nav.Link href="/engscore">England Score</Nav.Link>
+      <Nav.Link href="/geroutc">Germany Outcome</Nav.Link>
+      <Nav.Link href="/gerscore">Germany Score</Nav.Link>
+      </Nav>
+      </Navbar> 
