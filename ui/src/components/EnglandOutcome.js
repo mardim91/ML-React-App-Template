@@ -93,7 +93,7 @@ class EnglandOutcome extends Component {
     return (
       <Container>
         <div>
-          <h1 className="title">ML React App</h1>
+          <h1 className="title">England Outcome</h1>
         </div>
         <div className="content">
           <Form>
